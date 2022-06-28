@@ -12,16 +12,14 @@ dbConnection();
 //CORS
 app.use(cors());
 
-//Routes
-app.use(express.json()); //read and parse body
-
 //Public directory
 //Midleware
-app.use( express.static('public'))
+app.use( express.static('public'));
+
+app.use(express.json()); //read and parse body
 
 app.use('/api/auth', require('./routes/auth'));
-
-// TODO: CRUD: Eventos
+app.use('/api/employees', require('./routes/employees'));
 
 
 //Listen requets:
